@@ -1,0 +1,18 @@
+<template>
+
+    <lightning-card title="Get and Delete Record via Ui record Api">
+
+        <template if:true={templatetrue} > 
+            <div class="slds-p-around_medium">
+            <p>Account Name - {accountName}</p>
+            <p>Account Industry - {accountIndustry}</p>
+            <p>Account Owner - {accountOwner}</p>
+            <p>Account Phone - {accountPhone}</p>
+            </div>
+        </template>
+
+        <lightning-button label="Delete" onclick={deleteAccount} variant="destructive"></lightning-button>
+
+    </lightning-card>
+    
+</template>

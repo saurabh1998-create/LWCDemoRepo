@@ -1,0 +1,20 @@
+<template>
+
+    <lightning-card title="Player Search Card">
+
+        <lightning-button label="Create Player" onclick={createPlayerHandler} slot="actions"></lightning-button>
+
+        <div class="slds-align_absolute-center">
+            <lightning-combobox title="Nationality" options={optionsarr} value={playersNationality}
+                onchange={handleOnChange}>
+            </lightning-combobox>
+        </div>
+        <template if:true={selectedPlayerId}>
+            Selected Id : {selectedPlayerId}
+        </template>
+    </lightning-card>
+
+    <!-- child component for results -->
+    <c-player-search-results onselectedplayer={handleSelectedPlayer}></c-player-search-results>
+
+</template>

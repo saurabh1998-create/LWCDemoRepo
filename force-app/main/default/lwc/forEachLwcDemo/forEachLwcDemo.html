@@ -1,0 +1,14 @@
+<template>
+
+    <lightning-card title="For Each Demo">
+        <template if:true={getAccounts.data}>
+            <template for:each={getAccounts.data} for:item="Account">
+                <h3 key={Account.Id} style="margin: 10px;"> {Account.Name}</h3>
+            </template>
+        </template>
+
+        ,<template if:true={getAccounts.error}>
+            <h4>{getAccounts.error}</h4>
+        </template>
+    </lightning-card>    
+</template>

@@ -1,0 +1,24 @@
+<template>
+
+    <lightning-card icon-name="standard:user">
+
+        <template if:true={playerdata}>
+            <span slot="title">{playerdata.Name}</span>
+
+            <div>
+            <img src={playerdata.Image_Url__c} alt="player img" style="height: 400px; width: auto;"/>      
+                <h1 class="slds-m-bottom_small">Player Details</h1>
+                <p>Name : {playerdata.Name}</p>
+                <p>Age : {playerdata.Age__c} </p>
+                <p>Nationality : {playerdata.Nationality__c}</p>
+                <p>Runs : {playerdata.Runs__c}</p>
+            </div>
+        </template>
+
+        <template if:false={playerdasta}>
+            <p>Select Player to view details</p>
+        </template>
+
+    </lightning-card>
+    
+</template>

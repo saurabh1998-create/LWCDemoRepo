@@ -1,0 +1,11 @@
+<template>
+
+    <lightning-card title="Create record with lightning Api" >
+        <div>
+        <lightning-input label="Account id" disabled value={accountId}></lightning-input>
+        <lightning-input label="Name" placeholder="Enter Name" onchange={handlechangeName}></lightning-input>
+        <lightning-button label="Save" onclick={handleCreateAccount} variant="brand" ></lightning-button>
+    </div>
+    </lightning-card>
+    
+</template>

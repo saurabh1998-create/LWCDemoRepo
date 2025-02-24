@@ -1,0 +1,20 @@
+<template>
+
+    <lightning-card title="Contacts">
+        <lightning-button label={showLabel} onclick={handleClick} variant="brand"></lightning-button>
+        <!-- <lightning-datatable key-field="id"
+                             data={data}
+                             columns={columns}
+        ></lightning-datatable> -->
+    </lightning-card>
+    <lightning-card>
+    <template if:true={showDatatable}>
+        <lightning-input type="Search" label="Search" value={searchString} placeholder="Enter Contact Name" onchange={handleChange}></lightning-input>
+     <lightning-datatable key-field="id"
+                             data={data}
+                             columns={columns}
+        ></lightning-datatable>
+    </template>
+</lightning-card>
+        
+</template>

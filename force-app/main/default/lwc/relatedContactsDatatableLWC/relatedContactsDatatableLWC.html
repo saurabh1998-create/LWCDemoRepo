@@ -1,0 +1,11 @@
+<template>
+
+    <lightning-card title="Data Table to get related Contacts">
+        <lightning-button label={buttonLabel} onclick={showdatatable} variant="brand"></lightning-button>
+    </lightning-card>
+
+    <template if:true={showContactDatatable} >
+    <lightning-datatable  hide-checkbox-column show-row-number-column key-field="id" data={data} columns={columns}>   
+    </lightning-datatable>
+    </template>
+</template>

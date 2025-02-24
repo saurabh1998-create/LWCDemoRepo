@@ -1,0 +1,16 @@
+<template>
+
+    <lightning-card title="Parent card">
+        <lightning-input class="slds-p-horizontal_small" label="Set counter" min="0" max="100000" type="number" 
+        placeholder="Add number to add in child comp"
+        value={counterValue} onchange={changeHandler}
+        ></lightning-input>
+
+    <lightning-button style="padding-left: 10px;" label="Add 77" onclick={AddHandler}></lightning-button>
+    </lightning-card>
+
+    <c-parent-to-child-comm-child-lwc counter={counterValue}></c-parent-to-child-comm-child-lwc>
+
+
+    
+</template>

@@ -1,0 +1,13 @@
+<template>
+
+    <lightning-card title="Child To Parent Communication">
+
+        <h1>Count : {Counter}</h1>
+
+        <c-child-to-parent-comm-child-lwc onadd={addHandler} onsubstract={SubHandler} 
+        onmultiply={multiplyHander}
+        ></c-child-to-parent-comm-child-lwc>
+
+    </lightning-card>
+    
+</template>

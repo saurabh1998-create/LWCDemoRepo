@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Player Search Results">
+        <lightning-layout title="Layout" multiple-rows="true">
+            <template if:true={data}>
+                <template for:each={data} for:item="playerData">
+                    <lightning-layout-item size="3" key={playerData.Id} class="slds-p-around_small">
+
+                        <div onclick={handleClickPlayerCard} data-id={playerData.Id} style="cursor: pointer;">
+                        <div class="tile" style=" width: 100% ;height: 100px;padding: 1px; border: 1px solid #ddd; border-radius: 5px;">
+                            <img src={playerData.Image_Url__c} alt="">
+                        </div>
+                        <div style=" font-size: x-small;padding: 1px;">
+                            <p style="font-size: x-small;">Name : {playerData.Name}</p>
+                            <p>Nationality : {playerData.Nationality__c}</p>
+                            <p>Age : {playerData.Age__c}</p>
+                            <p>Runs : {playerData.Runs__c}</p>
+                        </div>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </template>
+            <template if:true={error}>
+                <p>Error loading player data</p>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

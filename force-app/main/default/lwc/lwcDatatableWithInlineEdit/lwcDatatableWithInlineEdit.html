@@ -1,0 +1,15 @@
+<template>
+
+    <lightning-card style="height: 200px;">
+        <lightning-datatable key-field="Id"
+                             data={data}
+                             columns={columns}
+                             onsave={handleOnSave}
+                             draft-values={draftValues}
+                             hide-checkbox-column
+                             show-row-number-column
+
+        ></lightning-datatable>
+    </lightning-card>
+    
+</template>
