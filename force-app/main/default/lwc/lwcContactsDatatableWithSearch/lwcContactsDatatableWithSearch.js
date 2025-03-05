@@ -45,7 +45,7 @@ export default class LwcContactsDatatableWithSearch extends LightningElement {
 
     handleChange(event){
         this.searchString = event.detail.value;
-        console.log(searchString);
+        console.log(this.searchString);
         searchContacts({searchString : this.searchString , accountId : this.recordId})
         .then(result =>{
             console.log(result)

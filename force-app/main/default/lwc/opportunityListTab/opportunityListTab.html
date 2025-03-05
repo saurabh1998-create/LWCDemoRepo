@@ -1,0 +1,54 @@
+<!-- <template>
+
+    <article class="slds-card slds-card_boundary spacingCard">
+        <div class="slds-card__header slds-grid slds-theme_shade">
+            <lightning-layout multiple-rows="true">
+
+                <lightning-layout-item size="12">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_medium">
+                        <div class="slds-media__figure">
+                                <lightning-icon icon-name={objectIcon}></lightning-icon>
+                        </div>
+
+                        <div >
+                           <h2 class="slds-card__header-title">
+                            Opportunities (3)
+                           </h2>
+                        </div>
+                    </header>
+                </lightning-layout-item>
+
+            </lightning-layout>
+        </div>
+    </article>
+</template> -->
+
+<!-- ==================================================================== -->
+
+<template>
+    <lightning-card title="Opportunity List">
+        <template if:true={columns.length}>
+            <lightning-datatable
+                key-field="Id"
+                data={pagedData}
+                columns={columns}
+                onsort={handleSort}
+                sorted-by={sortBy}
+                sorted-direction={sortDirection}>
+            </lightning-datatable>
+            <div class="slds-p-around_medium slds-align_absolute-center">
+                <lightning-button label="Previous" onclick={previousPage} disabled={isFirstPage}></lightning-button>
+                <span class="slds-p-horizontal_medium">Page {currentPage} of {totalPages}</span>
+                <lightning-button label="Next" onclick={nextPage} disabled={isLastPage}></lightning-button>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                {error.body.message}
+            </div>
+        </template>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>
