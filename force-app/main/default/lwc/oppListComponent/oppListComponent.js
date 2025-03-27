@@ -1,14 +1,15 @@
 import { LightningElement, wire, api, track } from 'lwc';
 import getOppList from '@salesforce/apex/OpportunityListCompController.getOppList';
+import {NavigationMixin} from 'lightning/navigation'
 
 const columns = [
-    { label: 'Opp. Name', fieldName: 'Name', sortable: true },
+    { label: 'Opp. Name', fieldName: 'opportunityLink', type: 'url', typeAttributes: { label: { fieldName: 'Name' } }, sortable: true  },
     { label: 'Amount', fieldName: 'Amount',sortable:true } ,
     {label: 'Stage',fieldName:'StageName' ,sortable:true},
     {label:'Close Date' , fieldName:'CloseDate', sortable:true}
 ];
 
-export default class OppListComponent extends LightningElement {
+export default class OppListComponent extends NavigationMixin(LightningElement) {
     @track columns = columns;
     @track allData = [];
     @track data = [];
@@ -16,6 +17,7 @@ export default class OppListComponent extends LightningElement {
     @track pageSize = 5;
     @api recordId;
     @track totalPages
+    @track noOfRecords;
 
     connectedCallback() {
         console.log('recordid ===' + this.recordId);
@@ -26,12 +28,23 @@ export default class OppListComponent extends LightningElement {
         if (error) {
             console.error(error);
         } else if (data) {
+
+            this.allData = data.map(opportunity => { // Map data to add NameUrl
+                return {
+                    ...opportunity,
+                    opportunityLink: `/${opportunity.Id}` // Creating the URL for navigation
+                };
+            });
             console.log('dat--->', data); 
-            this.allData = data;
+           // this.allData = data;
             this.updatePaginatedData();
-            this.totalPages = Math.ceil(this.allData.length / this.pageSize)
-            
+            this.totalPages = Math.ceil(this.allData.length / this.pageSize)  
+            this.noOfRecords = this.allData.length 
         }
+    }
+
+    get Opportunitiestitle(){
+        return `Opportunities(${this.noOfRecords})`
     }
 
 

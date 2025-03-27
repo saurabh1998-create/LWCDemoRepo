@@ -1,0 +1,26 @@
+<template>
+
+    <lightning-card title="Lightning Record Picker" icon-name="standard:search" class="slds-card__body_inner">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"> Select a Record</label>
+            <div class="slds-form-element__control slds-combobox-group">
+                <lightning-combobox label="Select target object"
+                                variant="label-hidden" 
+                                placeholder="Select a target object" 
+                                options={options}
+                                value={value} 
+                                onchange={handleObjectChange}
+                                class="slds-combobox_object-switcher slds-combobox-addon_start">
+                </lightning-combobox>
+
+                <lightning-record-picker    label="Select Record" 
+                                        variant="label-hidden"
+                                        placeholder="Search for a record" 
+                                        object-api-name={targetObj}
+                                        onchange={handleRecordSelection} 
+                                        class="slds-size_full slds-combobox-addon_end"> 
+                </lightning-record-picker>
+            </div>
+        </div>
+    </lightning-card>
+</template>

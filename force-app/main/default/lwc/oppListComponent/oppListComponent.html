@@ -1,13 +1,17 @@
 <template>
 
-    <lightning-card title="Opportunities" icon-name="standard:opportunity">
 
-        <lightning-datatable key-field="Id" columns={columns} data={data}></lightning-datatable>
-        <div class="slds-p-around_medium slds-align_absolute-center">
-            <lightning-button variant="brand" label="Previous Page" onclick={previousPage} disabled={hasPrevious}></lightning-button>
-            <p>Page  {currentPage} of  {totalPages}</p>
-            <lightning-button label="Next Page" onclick={nextPage} disabled={hasNextPage} ></lightning-button>
-        </div>
+    <lightning-card title={Opportunitiestitle} icon-name="standard:opportunity">
+
+
+        <template if:true={noOfRecords}>
+            <lightning-datatable key-field="Id" columns={columns} data={data} hide-checkbox-column show-row-number-column=""></lightning-datatable>
+            <div class="slds-p-around_medium slds-align_absolute-center">
+                <lightning-button variant="brand" label="Previous Page" onclick={previousPage}
+                    disabled={hasPrevious}></lightning-button>
+                <p>Page {currentPage} of {totalPages}</p>
+                <lightning-button label="Next Page" onclick={nextPage} disabled={hasNextPage}></lightning-button>
+            </div>
+        </template>
     </lightning-card>
-
 </template>
