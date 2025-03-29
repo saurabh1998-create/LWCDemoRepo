@@ -7,12 +7,12 @@ export default class MovieSearchComLwc extends LightningElement {
 
     movieName ='';
 
-    SearchHandler(event){
+    movieNameChangeHandler(event){
+        this.movieName = event.target.value
+    }
 
-        this.movieName = this.refs.movieNameSearchText?.value;
+    SearchHandler(){
         console.log(this.movieName);
-
-
         IMDBMovieApiController({moviewName : this.movieName})
         .then( res => {
             if(res){
@@ -25,6 +25,7 @@ export default class MovieSearchComLwc extends LightningElement {
         })
         .catch(error =>{
         console.error(error);
+        
         
          })
 

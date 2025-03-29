@@ -3,7 +3,7 @@
     <lightning-card title="Search Movies">
         <lightning-layout class="slds-m-left_medium" vertical-align="center"> 
                             <lightning-layout-item size="9">
-                        <lightning-input placeholder="Enter Movie Name" value={movieName} lwc:ref="movieNameSearchText"></lightning-input>
+                        <lightning-input placeholder="Enter Movie Name" value={movieName} onchange={movieNameChangeHandler}></lightning-input>
                             </lightning-layout-item>
                         <lightning-layout-item size="3" >
                             <lightning-button onclick={SearchHandler} variant="brand" label="Search" class="slds-m-left_medium"></lightning-button>
